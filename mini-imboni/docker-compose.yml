@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB: imboni
+      POSTGRES_USER: imboni
+      POSTGRES_PASSWORD: imboni
+    ports:
+      - "5432:5432"

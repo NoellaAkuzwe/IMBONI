@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: mini-imboni
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 20MB
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics
+
+imboni:
+  embedding:
+    provider: hashing          # hashing (offline) | openai
+  llm:
+    provider: offline          # offline | openai | anthropic
+    timeout-seconds: 30
+    max-retries: 2
+    max-output-tokens: 1200
+  retrieval:
+    mode: HYBRID               # VECTOR | KEYWORD | HYBRID
+    top-k: 5
+    candidate-pool: 20
+    rrf-k: 60
+  evidence:
+    min-similarity: 0.12
+    min-coverage: 0.5
+  review:
+    max-unsupported-fraction: 0.0
+    review-on-extraction-warnings: true
+    weak-evidence-coverage: 0.75
+  api-keys:
+    dev-key-alice: alice
+    dev-key-bob: bob

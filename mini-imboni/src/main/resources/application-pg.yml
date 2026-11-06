@@ -1,0 +1,8 @@
+# Run with: SPRING_PROFILES_ACTIVE=pg (after `docker compose up -d`)
+spring:
+  autoconfigure:
+    exclude: []
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/imboni}
+    username: ${DATABASE_USER:imboni}
+    password: ${DATABASE_PASSWORD:imboni}

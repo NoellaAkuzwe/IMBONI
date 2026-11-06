@@ -1,0 +1,31 @@
+name: ci
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: pgvector/pgvector:pg16
+        env:
+          POSTGRES_DB: imboni
+          POSTGRES_USER: imboni
+          POSTGRES_PASSWORD: imboni
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U imboni" --health-interval 5s --health-timeout 5s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "21"
+          cache: maven
+      # Unit + API tests, the offline eval with quality floors, and the pgvector integration test.
+      - run: mvn -B test
+        env:
+          PG_TESTS: "1"
+      - run: mvn -B -q compile exec:java
+      - uses: actions/upload-artifact@v4
+        with:
+          name: eval-report
+          path: target/eval/

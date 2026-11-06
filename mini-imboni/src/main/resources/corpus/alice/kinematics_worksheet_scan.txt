@@ -1,0 +1,31 @@
+<!-- source: scan -->
+# Kinematics Worksheet - Equations of Motion
+
+Velocity is the speed of an object in a given direction. Acceleration is the rate at which velocity changes. For an object moving in a straight line with constant acceleration, we use the equations of motion.
+
+The first equation links final velocity to initial velocity, acceleration and time:
+v = u + at
+where v is the final velocity, u is the initial velocity, a is the acceleration and t is the time taken.
+
+The second equation gives the displacement:
+s = ut + l/2 at2
+where s is the displacement in metres.
+
+## Example
+
+A car starts from rest and accelerates at 3 m/s2 for 4 s. Its final velocity is v = 0 + 3 x 4 = 12 m/s.
+
+--- page 2 ---
+| Time (s) | Velocity (m/s) | Displacement (m) |
+|---|---|---|
+| 0 | 0 | 0 |
+| 1 | 3 | 1.5 |
+| 2 | 6 | 6 | |
+| 3 | 9 | 13.5 |
+| 4 | 12 | 24 |
+
+Students should plot velocity against time. The gradient of a velocity-time graph is the acceleration, and the area under the graph is the displacement.
+
+## Practice questions
+
+A cyclist accelerates from 2 m/s to 8 m/s in 3 s. Calculate the acceleration: a = (v - u) / t = (8 - 2) / 3 = 2 m/s�.
